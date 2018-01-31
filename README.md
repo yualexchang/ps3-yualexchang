@@ -38,40 +38,30 @@ Note that unlike the variation of Dijkstra's algorithm on page 129 of Sedgewick 
 
 You need two stacks, a value stack (to hold the numbers), and an operator stack (to hold the operators). Numbers will be double values, operators will be String values. The algorithm is as follows. Note that no error checking is mentioned explicitly; but you may want to throw an ArithmeticException if your code detects something wrong with the input.
 
+```
 1. While there are still tokens to be read:
-
   A. Get the next token.
-
   B. If the token is:
-
-      1. A **number**: push it onto the value stack.
-
-      2. A **left paren**: push it onto the operator stack.
-
-      3. A **right paren**:
-
-      1. While the thing on top of the operator stack (use `peek()`) is not a left paren:
-
-            1. Pop the operator from the operator stack.
-
-            2. Pop the value stack twice, getting two operands.
-
-            3. Apply the operator to the operands, in the correct order.
-
-            4. Push the result onto the value stack.
-
-      2. Pop the left parenthesis from the operator stack, and discard it.
-
-      4. An **operator**:
-
-      1. While the operator stack is not empty, and the top item on the operator stack has the same or greater precedence as the token:      
-            1. Pop the operator from the operator stack.
-            2. Pop the value stack twice, getting two operands.
-            3. Apply the operator to the operands, in the correct order.
-            4. Push the result onto the value stack.
-      2. Push the token onto the operator stack.
-
-2. At this point the operator stack should be empty, and the value stack should have only one value in it, which is the final result. Pop it and print it to `System.out`.
+    1. a number: push it onto the value stack.
+    2. a left paren: push it onto the operator stack.
+    3. a right paren:
+      A. While the thing on top of the operator stack (use peek()) is not a left paren:
+        1. Pop the operator from the operator stack.
+        2. Pop the value stack twice, getting two operands.
+        3. Apply the operator to the operands, in the correct order.
+        4. Push the result onto the value stack.
+      B. Pop the left parenthesis from the operator stack, and discard it.
+    4. an operator:
+      A. While the operator stack is not empty, and the top item on the operator stack has 
+         the same or greater precedence as the token: 
+        1. Pop the operator from the operator stack.
+        2. Pop the value stack twice, getting two operands.
+        3. Apply the operator to the operands, in the correct order.
+        4. Push the result onto the value stack.
+      B. Push the token onto the operator stack.
+2. At this point the operator stack should be empty, and the value stack should have only one
+   value in it, which is the final result. Pop it and print it to System.out.
+```
 
 #### Getting Started
 
