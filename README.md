@@ -36,7 +36,7 @@ Note that unlike the variation of Dijkstra's algorithm on page 129 of Sedgewick 
 
 #### The Algorithm
 
-You need two stacks, a value stack (to hold the numbers), and an operator stack (to hold the operators). Numbers will be double values, operators will be String values. The algorithm is as follows. Note that no error checking is mentioned explicitly; but you may want to throw an ArithmeticException if your code detects something wrong with the input.
+You need two stacks, a value stack (to hold the numbers), and an operator stack (to hold the operators). Numbers will be `Double` values, operators will be `String` values. The algorithm is as follows. Note that no error checking is mentioned explicitly; but you may want to throw an ArithmeticException if your code detects something wrong with the input.
 
 ```
 1. While there are still tokens to be read:
